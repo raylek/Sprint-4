@@ -2,9 +2,13 @@ package ru.sber.functional
 
 class StudentsGroup {
 
-    lateinit var students: List<Student>
+    private val students = listOf(
+        Student(firstName = "John", lastName = "Travolta", averageRate = 4.0),
+        Student(firstName = "Brad", lastName = "Pitt", averageRate = 4.1),
+        Student(firstName = "Leonardo", lastName = "Dicaprio", averageRate = 4.2)
+    )
 
-    fun filterByPredicate() {
-        TODO()
+    fun filterByPredicate(condition: (Student) -> Boolean): List<Student> {
+        return students.filter(condition)
     }
 }
