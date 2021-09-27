@@ -6,7 +6,7 @@ class NameValidator : Validator<String>() {
     override fun validate(value: String?): List<ErrorCode> {
         val regex = "[аА-яЯ]{1,16}".toRegex()
 
-        if(value == null) {
+        if(value.isNullOrEmpty()) {
             return listOf(ErrorCode.NULL_FIELD)
         }
 
@@ -22,7 +22,7 @@ class PhoneValidator : Validator<String>() {
     override fun validate(value: String?): List<ErrorCode> {
         val regex = "[78](\\d{10})".toRegex()
 
-        if(value == null) {
+        if(value.isNullOrEmpty()) {
             return listOf(ErrorCode.NULL_FIELD)
         }
 
@@ -39,7 +39,7 @@ class EmailValidator : Validator<String>() {
         val regex = "\\w+@\\w+\\.\\w+".toRegex()
         val lenRegex = ".{1,32}".toRegex()
 
-        if(value == null) {
+        if(value.isNullOrEmpty()) {
             return listOf(ErrorCode.NULL_FIELD)
         }
 
@@ -55,7 +55,7 @@ class SNILSValidation : Validator<String>() {
     override fun validate(value: String?): List<ErrorCode> {
         val regex = "\\d{11}".toRegex()
 
-        if(value == null) {
+        if(value.isNullOrEmpty()) {
             return listOf(ErrorCode.NULL_FIELD)
         }
 
